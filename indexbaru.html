@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratib al-Haddad PDF Viewer</title>
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="indexbaru.css">
+</head>
+<body>
+    <div class="pdf-container animate">
+        <!-- Kontrol panel untuk navigasi PDF -->
+        <div class="pdf-controls">
+            <!-- Tombol Load PDF -->
+            <button onclick="loadPDF()" id="loadBtn">
+                <i class="fas fa-file-pdf"></i> Load Ratib PDF
+            </button>
+            
+            <!-- Tombol Navigasi Halaman (awalnya disabled) -->
+            <button onclick="previousPage()" id="prevBtn" disabled>
+                <i class="fas fa-chevron-left"></i> Prev
+            </button>
+            <button onclick="nextPage()" id="nextBtn" disabled>
+                <i class="fas fa-chevron-right"></i> Next
+            </button>
+            
+            <!-- Tombol Zoom -->
+            <button onclick="zoomIn()" id="zoomInBtn" disabled>
+                <i class="fas fa-search-plus"></i> Zoom In
+            </button>
+            <button onclick="zoomOut()" id="zoomOutBtn" disabled>
+                <i class="fas fa-search-minus"></i> Zoom Out
+            </button>
+            <button onclick="resetZoom()" id="resetBtn" disabled>
+                <i class="fas fa-expand-arrows-alt"></i> Reset
+            </button>
+        </div>
+        
+        <!-- Canvas untuk render halaman PDF -->
+        <canvas id="pdfViewer"></canvas>
+        
+        <!-- Info status dan navigasi halaman -->
+        <div id="pdfStatus">
+            Klik "Load Ratib PDF" untuk membaca teks lengkap Ratib al-Haddad
+        </div>
+        <div id="pageInfo" class="page-info"></div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="indexbaru.js"></script>
+</body>
+</html>
