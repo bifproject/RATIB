@@ -1,0 +1,175 @@
+/* ========================================
+   PDF VIEWER - RATIB AL-HADDAD (Dengan Navigasi)
+   ======================================== */
+
+/* Container utama dengan animasi */
+.pdf-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Animasi masuk halus */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Kontrol panel - 2 baris untuk mobile */
+.pdf-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Grup tombol navigasi halaman */
+.nav-group {
+    display: flex;
+    gap: 5px;
+    background: rgba(255,255,255,0.8);
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Styling tombol */
+.pdf-controls button {
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    min-width: 80px;
+    justify-content: center;
+}
+
+/* Tombol navigasi halaman (lebih kecil) */
+.nav-group button {
+    padding: 10px 12px;
+    min-width: 60px;
+    font-size: 13px;
+}
+
+/* Efek hover tombol */
+.pdf-controls button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* Tombol disabled */
+.pdf-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+/* Canvas PDF Viewer */
+#pdfViewer {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    background: white;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: block;
+    margin: 0 auto;
+}
+
+/* Status message */
+#pdfStatus {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+    font-size: 18px;
+    background: white;
+    border-radius: 8px;
+    border: 2px dashed #dee2e6;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+/* Status loading */
+#pdfStatus.loading {
+    color: #007bff;
+    border-color: #007bff;
+}
+
+/* Status error */
+#pdfStatus.error {
+    color: #dc3545;
+    border-color: #dc3545;
+}
+
+/* Info halaman - lebih menarik */
+.page-info {
+    text-align: center;
+    margin: 15px 0;
+    color: #495057;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-container {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .pdf-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pdf-controls button {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .nav-group {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    #pdfViewer {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .pdf-container {
+        padding: 10px;
+    }
+    
+    .pdf-controls button {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+    
+    .page-info {
+        font-size: 16px;
+        padding: 12px;
+    }
+}
